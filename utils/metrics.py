@@ -199,7 +199,7 @@ class ConfusionMatrix:
                        ax=ax,
                        annot=nc < 30,
                        annot_kws={
-                           "size": 8},
+                           "size": 12},
                        cmap='Blues',
                        fmt='.2f',
                        square=True,
