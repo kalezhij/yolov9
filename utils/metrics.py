@@ -190,7 +190,7 @@ class ConfusionMatrix:
 
         fig, ax = plt.subplots(1, 1, figsize=(12, 9), tight_layout=True)
         nc, nn = self.nc, len(names)  # number of classes, names
-        sn.set(font_scale=3.0 if nc < 50 else 0.8)  # for label size
+        sn.set(font_scale=1.0 if nc < 50 else 0.8)  # for label size
         labels = (0 < nn < 99) and (nn == nc)  # apply names to ticklabels
         ticklabels = (names + ['background']) if labels else "auto"
         with warnings.catch_warnings():
@@ -205,10 +205,11 @@ class ConfusionMatrix:
                        square=True,
                        vmin=0.0,
                        xticklabels=ticklabels,
-                       yticklabels=ticklabels).set_facecolor((1, 1, 1))
+                       yticklabels=ticklabels)
+            myheatmap.set_xticklabels(myheatmap.get_xticklabels(), rotation=90)
+            myheatmap.set_yticklabels(myheatmap.get_yticklabels(), rotation=0)            
+            myheatmap.set_facecolor((1, 1, 1))
         # mylabelfont added by me, 3 Aug 2024
-        myheatmap.set_xticklabels(myheatmap.get_xticklabels(), rotation=90)
-        myheatmap.set_yticklabels(myheatmap.get_yticklabels(), rotation=0)        
         mylabelfont={'size':'18'}  # Adjust to fit        
         ax.set_ylabel('True')
         ax.set_xlabel('True') # added by me
