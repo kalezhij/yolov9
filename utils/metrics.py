@@ -195,7 +195,7 @@ class ConfusionMatrix:
         ticklabels = (names + ['background']) if labels else "auto"
         with warnings.catch_warnings():
             warnings.simplefilter('ignore')  # suppress empty matrix RuntimeWarning: All-NaN slice encountered
-            sn.heatmap(array,
+            myheatmap=sn.heatmap(array,
                        ax=ax,
                        annot=nc < 30,
                        annot_kws={
@@ -207,6 +207,8 @@ class ConfusionMatrix:
                        xticklabels=ticklabels,
                        yticklabels=ticklabels).set_facecolor((1, 1, 1))
         # mylabelfont added by me, 3 Aug 2024
+        myheatmap.set_xticklabels(ax.get_xticklabels(), rotation=90)
+        myheatmap.set_yticklabels(ax.get_yticklabels(), rotation=0)        
         mylabelfont={'size':'18'}  # Adjust to fit        
         ax.set_ylabel('True')
         ax.set_xlabel('True') # added by me
