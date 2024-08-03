@@ -206,9 +206,13 @@ class ConfusionMatrix:
                        vmin=0.0,
                        xticklabels=ticklabels,
                        yticklabels=ticklabels).set_facecolor((1, 1, 1))
+        # mylabelfont added by me, 3 Aug 2024
+        mylabelfont={'size':'18'}  # Adjust to fit        
         ax.set_ylabel('True')
-        ax.set_ylabel('Predicted')
-        ax.set_title('Confusion Matrix')
+        ax.set_xlabel('True') # added by me
+        ax.set_ylabel('Predicted', fontdict=mylabelfont)
+        ax.set_xlabel('Observed', fontdict=mylabelfont)
+        ax.set_title('Confusion Matrix', fontdict=mylabelfont)
         fig.savefig(Path(save_dir) / 'confusion_matrix.png', dpi=250)
         plt.close(fig)
 
