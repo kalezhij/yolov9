@@ -195,7 +195,7 @@ class ConfusionMatrix:
         ticklabels = (names + ['background']) if labels else "auto"
         with warnings.catch_warnings():
             warnings.simplefilter('ignore')  # suppress empty matrix RuntimeWarning: All-NaN slice encountered
-            myheatmap = sn.heatmap(array,
+            sn.heatmap(array,
                        ax=ax,
                        annot=nc < 30,
                        annot_kws={
@@ -213,9 +213,6 @@ class ConfusionMatrix:
         ax.set_ylabel('Predicted', fontdict=mylabelfont)
         ax.set_xlabel('Observed', fontdict=mylabelfont)
         ax.set_title('Confusion Matrix', fontdict=mylabelfont)
-        myfontsize=18
-        myheatmap.yaxis.set_ticklabels(myheatmap.yaxis.get_ticklabels(), rotation=0, ha='right', fontsize=myfontsize)
-        myheatmap.xaxis.set_ticklabels(myheatmap.xaxis.get_ticklabels(), rotation=45, ha='right', fontsize=myfontsize)
         fig.savefig(Path(save_dir) / 'confusion_matrix.png', dpi=250)
         plt.close(fig)
 
