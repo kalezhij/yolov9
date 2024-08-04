@@ -377,7 +377,7 @@ def plot_pr_curve(px, py, ap, save_dir=Path('pr_curve.png'), names=()):
     ax.set_ylabel('Precision',fontsize=20)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.legend(bbox_to_anchor=(1.04, 1),fontsize="20", loc="upper left")
+    ax.legend(bbox_to_anchor=(1.04, 1),fontsize="16", loc="upper left")
     ax.set_title('Precision-Recall Curve',fontsize=20)
     plt.setp(ax.get_xticklabels(), fontsize=20)
     plt.setp(ax.get_yticklabels(), fontsize=20)
