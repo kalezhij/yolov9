@@ -190,7 +190,7 @@ class ConfusionMatrix:
 
         fig, ax = plt.subplots(1, 1, figsize=(12, 9), tight_layout=True)
         nc, nn = self.nc, len(names)  # number of classes, names
-        sn.set(font_scale=1.0 if nc < 50 else 0.8)  # for label size
+        sn.set(font_scale=3.0 if nc < 50 else 0.8)  # for label size
         labels = (0 < nn < 99) and (nn == nc)  # apply names to ticklabels
         ticklabels = (names + ['background']) if labels else "auto"
         with warnings.catch_warnings():
@@ -217,8 +217,8 @@ class ConfusionMatrix:
         ax.set_ylabel('Predicted', fontdict=mylabelfont)
         ax.set_xlabel('Observed', fontdict=mylabelfont)
         ax.set_title('Confusion Matrix', fontdict=mylabelfont)
-        ax.tick_params(labelsize=18)
-        fig.savefig(Path(save_dir) / 'confusion_matrix.png', dpi=250)
+        fig.savefig(Path(save_dir) / 'confusion_matrix.png', dpi=300)
+        sn.set(font_scale=1.0 if nc < 50 else 0.8)  # for label size
         plt.close(fig)
 
     def print(self):
