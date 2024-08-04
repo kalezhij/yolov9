@@ -29,7 +29,7 @@ matplotlib.use('Agg')  # for writing to files only
 class Colors:
     # Ultralytics color palette https://ultralytics.com/
     def __init__(self):
-        # hex = matplotlib.colors.TABLEAU_COLORS.values()
+        # hex = matlib.colors.TABLEAU_COLORS.values()
         hexs = ('FF3838', 'FF9D97', 'FF701F', 'FFB21D', 'CFD231', '48F90A', '92CC17', '3DDB86', '1A9334', '00D4BB',
                 '2C99A8', '00C2FF', '344593', '6473FF', '0018EC', '8438FF', '520085', 'CB38FF', 'FF95C8', 'FF37C7')
         self.palette = [self.hex2rgb(f'#{c}') for c in hexs]
@@ -44,7 +44,7 @@ class Colors:
         return tuple(int(h[1 + i:1 + i + 2], 16) for i in (0, 2, 4))
 
 
-colors = Colors()  # create instance for 'from utils.plots import colors'
+colors = Colors()  # create instance for 'from utils.s import colors'
 
 
 def check_pil_font(font=FONT, size=10):
@@ -110,7 +110,7 @@ class Annotator:
                             lineType=cv2.LINE_AA)
 
     def masks(self, masks, colors, im_gpu=None, alpha=0.5):
-        """Plot masks at once.
+        """ masks at once.
         Args:
             masks (tensor): predicted masks on cuda, shape: [n, h, w]
             colors (List[List[Int]]): colors for predicted masks, [[r, g, b] * n]
@@ -181,7 +181,7 @@ def feature_visualization(x, module_type, stage, n=32, save_dir=Path('runs/detec
     x:              Features to be visualized
     module_type:    Module type
     stage:          Module stage within model
-    n:              Maximum number of feature maps to plot
+    n:              Maximum number of feature maps to 
     save_dir:       Directory to save results
     """
     if 'Detect' not in module_type:
@@ -190,10 +190,10 @@ def feature_visualization(x, module_type, stage, n=32, save_dir=Path('runs/detec
             f = save_dir / f"stage{stage}_{module_type.split('.')[-1]}_features.png"  # filename
 
             blocks = torch.chunk(x[0].cpu(), channels, dim=0)  # select batch index 0, block by channels
-            n = min(n, channels)  # number of plots
-            fig, ax = plt.subplots(math.ceil(n / 8), 8, tight_layout=True)  # 8 rows x n/8 cols
+            n = min(n, channels)  # number of s
+            fig, ax = plt.subs(math.ceil(n / 8), 8, tight_layout=True)  # 8 rows x n/8 cols
             ax = ax.ravel()
-            plt.subplots_adjust(wspace=0.05, hspace=0.05)
+            plt.subs_adjust(wspace=0.05, hspace=0.05)
             for i in range(n):
                 ax[i].imshow(blocks[i].squeeze())  # cmap='gray'
                 ax[i].axis('off')
@@ -275,7 +275,7 @@ def plot_images(images, targets, paths=None, fname='images.jpg', names=None):
         x, y = int(w * (i // ns)), int(h * (i % ns))  # block origin
         annotator.rectangle([x, y, x + w, y + h], None, (255, 255, 255), width=2)  # borders
         if paths:
-            #annotator.text((x + 5, y + 5), text=Path(paths[i]).name[:40], txt_color=(220, 220, 220))  # filenames
+          # annotator.text((x + 5, y + 5), text=Path(paths[i]).name[:40], txt_color=(220, 220, 220))  # filenames
         if len(targets) > 0:
             ti = targets[targets[:, 0] == i]  # image targets
             boxes = xywh2xyxy(ti[:, 2:6]).T
