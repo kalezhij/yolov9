@@ -217,6 +217,7 @@ class ConfusionMatrix:
         ax.set_ylabel('Predicted', fontdict=mylabelfont)
         ax.set_xlabel('Observed', fontdict=mylabelfont)
         ax.set_title('Confusion Matrix', fontdict=mylabelfont)
+        ax.tick_params(labelsize=18)
         fig.savefig(Path(save_dir) / 'confusion_matrix.png', dpi=250)
         plt.close(fig)
 
