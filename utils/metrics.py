@@ -205,10 +205,10 @@ class ConfusionMatrix:
                        square=True,
                        vmin=0.0,
                        xticklabels=ticklabels,
-                       yticklabels=ticklabels,
-                       cbar_kws={'fontsize': 18})
+                       yticklabels=ticklabels)
             myheatmap.set_xticklabels(myheatmap.get_xticklabels(), rotation=90, fontsize=18)
             myheatmap.set_yticklabels(myheatmap.get_yticklabels(), rotation=0, fontsize=18)
+            myheatmap.tick_params(labelsize=18)
             myheatmap.set_facecolor((1, 1, 1))
         # mylabelfont added by me, 3 Aug 2024
         mylabelfont={'size':'18'}  # Adjust to fit        
