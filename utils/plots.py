@@ -515,6 +515,8 @@ def plot_results(file='path/to/results.csv', dir=''):
                 # ax[i].set_title(s[j], fontsize=12)
                 ax[i].set_xlabel('epochs', fontsize=14)
                 ax[i].set_ylabel(s[j], fontsize=14)
+                plt.setp(ax[i].get_xticklabels(), fontsize=14)
+                plt.setp(ax[i].get_yticklabels(), fontsize=14)
                 # if j in [8, 9, 10]:  # share train and val loss y axes
                 #     ax[i].get_shared_y_axes().join(ax[i], ax[i - 5])
         except Exception as e:
