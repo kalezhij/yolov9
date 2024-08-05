@@ -512,7 +512,7 @@ def plot_results(file='path/to/results.csv', dir=''):
                 y = data.values[:, j].astype('float')
                 # y[y == 0] = np.nan  # don't show zero values
                 ax[i].plot(x, y, marker='.', label=f.stem, linewidth=4, markersize=10)
-                ax[i].set_title(s[j], fontsize=12)
+                ax[i].set_title(s[j], fontsize=14)
                 # ax[i].set_xlabel('epochs', fontsize=14)
                 # ax[i].set_ylabel(s[j], fontsize=14)
                 plt.setp(ax[i].get_xticklabels(), fontsize=14)
@@ -522,7 +522,7 @@ def plot_results(file='path/to/results.csv', dir=''):
         except Exception as e:
             LOGGER.info(f'Warning: Plotting error for {f}: {e}')
     ax[1].legend()
-    plt.xlabel('epochs', fontsize=14)
+    fig.text(0.5, 0.04, 'epochs', ha='center', fontsize=14)
     fig.savefig(save_dir / 'results.png', dpi=300)
     plt.close()
 
