@@ -513,7 +513,7 @@ def plot_results(file='path/to/results.csv', dir=''):
                 # y[y == 0] = np.nan  # don't show zero values
                 ax[i].plot(x, y, marker='.', label=f.stem, linewidth=4, markersize=10)
                 # ax[i].set_title(s[j], fontsize=12)
-                ax[i].set_xlabel(‘epochs’, fontsize=14)
+                ax[i].set_xlabel('epochs', fontsize=14)
    	            ax[i].set_ylabel((s[j], fontsize=14)
                 # if j in [8, 9, 10]:  # share train and val loss y axes
                 #     ax[i].get_shared_y_axes().join(ax[i], ax[i - 5])
