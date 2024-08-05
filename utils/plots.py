@@ -522,7 +522,7 @@ def plot_results(file='path/to/results.csv', dir=''):
         except Exception as e:
             LOGGER.info(f'Warning: Plotting error for {f}: {e}')
     ax[1].legend()
-    fig.text(0.5, 0.04, 'epochs', ha='center', fontsize=14)
+    fig.text(0.5, 0.0, 'epochs', ha='center', fontsize=14)
     fig.savefig(save_dir / 'results.png', dpi=300)
     plt.close()
 
