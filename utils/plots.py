@@ -523,6 +523,7 @@ def plot_results(file='path/to/results.csv', dir=''):
             LOGGER.info(f'Warning: Plotting error for {f}: {e}')
     ax[1].legend()
     fig.text(0.5, 0.0, 'epochs', ha='center', fontsize=16)
+    plt.tight_layout()
     fig.savefig(save_dir / 'results.png', dpi=300)
     plt.close()
 
